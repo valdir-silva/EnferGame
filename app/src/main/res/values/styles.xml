@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item> <!-- MELHOR E MAIS SIMPLES FORMA DE USAR FULLSCREEN, MAS PRA REMOVER A ACTION BAR PRECISA USAR JAVA -->
     </style>
 
 </resources>
