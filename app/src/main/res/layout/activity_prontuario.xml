@@ -23,6 +23,58 @@
             app:srcCompat="@drawable/voltar"
             />
 
+        <ImageView
+            android:id="@+id/bgPrancheta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="100dp"
+            app:srcCompat="@drawable/bg_prancheta"
+            />
+
+        <ImageView
+            android:id="@+id/bgFerida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="440dp"
+            android:layout_marginTop="80dp"
+            app:srcCompat="@drawable/bg_ferida"
+            />
+
+        <ImageView
+            android:id="@+id/lblCama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="440dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/cama"
+            /> <!-- Usada para mostrar a fase do jogo -->
+
+        <ImageView
+            android:id="@+id/lblSeringa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/lblCama"
+            android:layout_alignTop="@id/lblCama"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="130dp"
+            app:srcCompat="@drawable/seringa"
+            />
+
+        <ImageView
+            android:id="@+id/btnBandeja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/bgFerida"
+            android:layout_below="@id/bgFerida"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            app:srcCompat="@drawable/btn_bandeja"
+            />
+
     </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>

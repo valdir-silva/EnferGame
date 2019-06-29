@@ -21,8 +21,8 @@ public class Home extends AppCompatActivity {
         prontuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent abreHome = new Intent(Home.this, Prontuario.class);
-                startActivity(abreHome);
+                Intent abreProntuario = new Intent(Home.this, Prontuario.class);
+                startActivity(abreProntuario);
             }
         });
 
