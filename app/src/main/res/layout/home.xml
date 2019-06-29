@@ -14,11 +14,53 @@
         >
 
         <ImageView
-            android:id="@+id/bgBus"
+            android:id="@+id/chao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             app:srcCompat="@drawable/chao"
+            />
+
+        <ImageView
+            android:id="@+id/enfermeira"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/chao"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="-175dp"
+            app:srcCompat="@drawable/enfermeira"
+            />
+
+        <ImageView
+            android:id="@+id/btnCama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/cama"
+            />
+
+        <ImageView
+            android:id="@+id/btnSeringa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/seringa"
+            />
+
+        <ImageView
+            android:id="@+id/btnProntuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/prontuario"
             />
 
     </RelativeLayout>
