@@ -4,17 +4,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Prontuario"
-            android:screenOrientation="landscape">
-        </activity>
+            android:name=".Tutorial"
+            android:screenOrientation="landscape" ></activity>
         <activity
-            android:name=".Home"
+            android:name=".SpashScreen"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Bandeja"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Prontuario"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Home"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
