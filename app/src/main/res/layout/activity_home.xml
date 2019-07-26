@@ -42,14 +42,42 @@
             app:srcCompat="@drawable/cama"
             />
 
+        <TextView
+            android:id="@+id/txtFase"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@id/btnCama"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="70dp"
+            android:gravity="center"
+            android:textSize="33dp"
+            android:textColor="#707070"
+            android:textStyle="bold"
+            android:text="0"
+            />
+
         <ImageView
             android:id="@+id/btnSeringa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="21dp"
             app:srcCompat="@drawable/seringa"
+            />
+
+        <TextView
+            android:id="@+id/txtLife"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@id/btnSeringa"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="90dp"
+            android:gravity="center"
+            android:textSize="33dp"
+            android:textColor="#707070"
+            android:textStyle="bold"
+            android:text="0"
             />
 
         <ImageView

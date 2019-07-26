@@ -1,29 +1,33 @@
 package classes;
 
-public class Desafio {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-    private int fase;
+public class Desafio implements Serializable {
+
+    private int numero;
     private String descricao;
     private String imagem;
-    private String remedio[];
-    private boolean opcao[];
+    private List<String> remedio = new ArrayList<String>();
+    private List<Integer> opcao = new ArrayList<Integer>();
 
     public  Desafio(){}
 
-    public Desafio(int fase, String descricao, String imagem, String[] remedio, boolean[] opcao) {
-        this.fase = fase;
+    public Desafio(int numero, String descricao, String imagem, ArrayList<String> remedio, ArrayList<Integer> opcao) {
+        this.numero = numero;
         this.descricao = descricao;
         this.imagem = imagem;
         this.remedio = remedio;
         this.opcao = opcao;
     }
 
-    public int getFase() {
-        return fase;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setFase(int fase) {
-        this.fase = fase;
+    public void setNumero(int fase) {
+        this.numero = fase;
     }
 
     public String getDescricao() {
@@ -42,19 +46,19 @@ public class Desafio {
         this.imagem = imagem;
     }
 
-    public String[] getRemedio() {
+    public List<String> getRemedio() {
         return remedio;
     }
 
-    public void setRemedio(String[] remedio) {
+    public void setRemedio(List<String> remedio) {
         this.remedio = remedio;
     }
 
-    public boolean[] getOpcao() {
+    public List<Integer> getOpcao() {
         return opcao;
     }
 
-    public void setOpcao(boolean[] opcao) {
+    public void setOpcao(List<Integer> opcao) {
         this.opcao = opcao;
     }
 }

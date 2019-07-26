@@ -5,12 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import classes.Estagiario;
 
 public class Prontuario extends AppCompatActivity {
 
     ImageView btnVoltar, btnBandeja;
+
+    TextView txtDescricao;
+
+    TextView txtFase, txtLife;
 
     Estagiario estagiario = new Estagiario();
 
@@ -26,6 +31,11 @@ public class Prontuario extends AppCompatActivity {
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnBandeja = findViewById(R.id.btnBandeja);
+        txtDescricao = findViewById(R.id.txtDescricao);
+        txtFase = findViewById(R.id.txtFase);
+        txtLife = findViewById(R.id.txtLife);
+
+        organizaFront();
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,5 +63,11 @@ public class Prontuario extends AppCompatActivity {
                 startActivity(abreBandeja);
             }
         });
+    }
+
+    private void organizaFront(){
+        txtDescricao.setText(estagiario.getFase().get(0).getDescricao());
+        txtFase.setText(Integer.toString(estagiario.getFase().get(0).getNumero()));
+        txtLife.setText(Integer.toString(estagiario.getLife()));
     }
 }

@@ -33,6 +33,17 @@
             app:srcCompat="@drawable/bg_prancheta"
             />
 
+        <TextView
+            android:id="@+id/txtDescricao"
+            android:layout_width="270dp"
+            android:layout_height="300dp"
+            android:layout_alignLeft="@id/bgPrancheta"
+            android:layout_alignTop="@id/bgPrancheta"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Lorem Ipsum"
+            />
+
         <ImageView
             android:id="@+id/bgFerida"
             android:layout_width="wrap_content"
@@ -53,15 +64,43 @@
             app:srcCompat="@drawable/cama"
             /> <!-- Usada para mostrar a fase do jogo -->
 
+        <TextView
+            android:id="@+id/txtFase"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@id/lblCama"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="70dp"
+            android:gravity="center"
+            android:textSize="33dp"
+            android:textColor="#707070"
+            android:textStyle="bold"
+            android:text="0"
+            />
+
         <ImageView
             android:id="@+id/lblSeringa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/lblCama"
             android:layout_alignTop="@id/lblCama"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="6dp"
             android:layout_marginLeft="130dp"
             app:srcCompat="@drawable/seringa"
+            />
+
+        <TextView
+            android:id="@+id/txtLife"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@id/lblSeringa"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="90dp"
+            android:gravity="center"
+            android:textSize="33dp"
+            android:textColor="#707070"
+            android:textStyle="bold"
+            android:text="0"
             />
 
         <ImageView

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import java.io.Serializable;
 
+import classes.Desafio;
 import classes.Estagiario;
 
 public class Tutorial extends AppCompatActivity {

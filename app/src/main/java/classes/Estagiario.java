@@ -1,15 +1,19 @@
 package classes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Estagiario implements Serializable {
 
     private int id;
     private String nome;
     private int life;
-    private int fase;
+    private List<Desafio> fase = new ArrayList<Desafio>();
 
-    public Estagiario(){}
+    public Estagiario() {
+        this.setLife(3);
+    }
 
     public int getId() {
         return id;
@@ -35,11 +39,11 @@ public class Estagiario implements Serializable {
         this.life = life;
     }
 
-    public int getFase() {
+    public List<Desafio> getFase() {
         return fase;
     }
 
-    public void setFase(int fase) {
+    public void setFase(List<Desafio> fase) {
         this.fase = fase;
     }
 }
