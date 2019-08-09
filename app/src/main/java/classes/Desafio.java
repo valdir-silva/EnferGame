@@ -8,13 +8,16 @@ public class Desafio implements Serializable {
 
     private int numero;
     private String descricao;
-    private String imagem;
-    private List<String> remedio = new ArrayList<String>();
-    private List<Integer> opcao = new ArrayList<Integer>();
+    private Integer imagem;
+    private List<Integer> remedio = new ArrayList<Integer>();
+    private boolean opcao[] = new boolean[10];
 
-    public  Desafio(){}
+    public  Desafio(){
+        for(int i=0;i<10;i++)
+            this.getOpcao()[i] = false;
+    }
 
-    public Desafio(int numero, String descricao, String imagem, ArrayList<String> remedio, ArrayList<Integer> opcao) {
+    public Desafio(int numero, String descricao, Integer imagem, ArrayList<Integer> remedio, boolean opcao[]) {
         this.numero = numero;
         this.descricao = descricao;
         this.imagem = imagem;
@@ -38,27 +41,27 @@ public class Desafio implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getImagem() {
+    public Integer getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(Integer imagem) {
         this.imagem = imagem;
     }
 
-    public List<String> getRemedio() {
+    public List<Integer> getRemedio() {
         return remedio;
     }
 
-    public void setRemedio(List<String> remedio) {
+    public void setRemedio(List<Integer> remedio) {
         this.remedio = remedio;
     }
 
-    public List<Integer> getOpcao() {
+    public boolean[] getOpcao() {
         return opcao;
     }
 
-    public void setOpcao(List<Integer> opcao) {
+    public void setOpcao(boolean[] opcao) {
         this.opcao = opcao;
     }
 }

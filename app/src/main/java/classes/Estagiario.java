@@ -9,10 +9,12 @@ public class Estagiario implements Serializable {
     private int id;
     private String nome;
     private int life;
-    private List<Desafio> fase = new ArrayList<Desafio>();
+    private int faseNumero;
+    private List<Desafio> fase = new ArrayList<>();
 
     public Estagiario() {
         this.setLife(3);
+        this.setFaseNumero(0);
     }
 
     public int getId() {
@@ -37,6 +39,14 @@ public class Estagiario implements Serializable {
 
     public void setLife(int life) {
         this.life = life;
+    }
+
+    public int getFaseNumero() {
+        return faseNumero;
+    }
+
+    public void setFaseNumero(int faseNumero) {
+        this.faseNumero = faseNumero;
     }
 
     public List<Desafio> getFase() {

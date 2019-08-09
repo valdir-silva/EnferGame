@@ -11,7 +11,7 @@ import classes.Estagiario;
 
 public class Prontuario extends AppCompatActivity {
 
-    ImageView btnVoltar, btnBandeja;
+    ImageView btnVoltar, btnBandeja, bgFerida;
 
     TextView txtDescricao;
 
@@ -34,6 +34,7 @@ public class Prontuario extends AppCompatActivity {
         txtDescricao = findViewById(R.id.txtDescricao);
         txtFase = findViewById(R.id.txtFase);
         txtLife = findViewById(R.id.txtLife);
+        bgFerida = findViewById(R.id.bgFerida);
 
         organizaFront();
 
@@ -66,8 +67,9 @@ public class Prontuario extends AppCompatActivity {
     }
 
     private void organizaFront(){
-        txtDescricao.setText(estagiario.getFase().get(0).getDescricao());
-        txtFase.setText(Integer.toString(estagiario.getFase().get(0).getNumero()));
+        bgFerida.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getImagem());
+        txtDescricao.setText(estagiario.getFase().get(estagiario.getFaseNumero()).getDescricao());
+        txtFase.setText(Integer.toString(estagiario.getFase().get(estagiario.getFaseNumero()).getNumero()));
         txtLife.setText(Integer.toString(estagiario.getLife()));
     }
 }

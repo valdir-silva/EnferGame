@@ -41,6 +41,7 @@
             android:layout_alignTop="@id/bgPrancheta"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
+            android:textSize="20dp"
             android:text="Lorem Ipsum"
             />
 
