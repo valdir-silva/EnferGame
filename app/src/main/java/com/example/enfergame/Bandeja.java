@@ -23,7 +23,6 @@ public class Bandeja extends AppCompatActivity {
     ImageView lblRemedioBandeja6, lblRemedioBandeja7, lblRemedioBandeja8, lblRemedioBandeja9, lblRemedioBandeja10;
     Controlador controlador = new Controlador();
 
-    boolean op_1, op_2, op_3, op_4, op_5, op_6, op_7, op_8, op_9, op_10; // alternativas escolhidas na bandeja
     boolean op[] = new boolean[10];
 
     Estagiario estagiario = new Estagiario();
@@ -81,7 +80,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja.setVisibility(View.VISIBLE);
-                op_1 = true;
                 op[0] = true;
             }
         });
@@ -91,7 +89,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio2.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja2.setVisibility(View.VISIBLE);
-                op_2 = true;
                 op[1] = true;
             }
         });
@@ -101,7 +98,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio3.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja3.setVisibility(View.VISIBLE);
-                op_3 = true;
                 op[2] = true;
             }
         });
@@ -111,7 +107,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio4.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja4.setVisibility(View.VISIBLE);
-                op_4 = true;
                 op[3] = true;
             }
         });
@@ -121,7 +116,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio5.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja5.setVisibility(View.VISIBLE);
-                op_5 = true;
                 op[4] = true;
             }
         });
@@ -131,7 +125,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio6.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja6.setVisibility(View.VISIBLE);
-                op_6 = true;
                 op[5] = true;
             }
         });
@@ -141,7 +134,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio7.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja7.setVisibility(View.VISIBLE);
-                op_7 = true;
                 op[6] = true;
             }
         });
@@ -151,7 +143,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio8.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja8.setVisibility(View.VISIBLE);
-                op_8 = true;
                 op[7] = true;
             }
         });
@@ -161,7 +152,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio9.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja9.setVisibility(View.VISIBLE);
-                op_9 = true;
                 op[8] = true;
             }
         });
@@ -171,7 +161,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedio10.setVisibility(View.INVISIBLE);
                 lblRemedioBandeja10.setVisibility(View.VISIBLE);
-                op_10 = true;
                 op[9] = true;
             }
         });
@@ -181,7 +170,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja.setVisibility(View.INVISIBLE);
                 lblRemedio.setVisibility(View.VISIBLE);
-                op_1 = false;
                 op[0] = false;
             }
         });
@@ -191,7 +179,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja2.setVisibility(View.INVISIBLE);
                 lblRemedio2.setVisibility(View.VISIBLE);
-                op_2 = false;
                 op[1] = false;
             }
         });
@@ -201,7 +188,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja3.setVisibility(View.INVISIBLE);
                 lblRemedio3.setVisibility(View.VISIBLE);
-                op_3 = false;
                 op[2] = false;
             }
         });
@@ -211,7 +197,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja4.setVisibility(View.INVISIBLE);
                 lblRemedio4.setVisibility(View.VISIBLE);
-                op_4 = false;
                 op[3] = false;
             }
         });
@@ -221,7 +206,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja5.setVisibility(View.INVISIBLE);
                 lblRemedio5.setVisibility(View.VISIBLE);
-                op_5 = false;
                 op[4] = false;
             }
         });
@@ -231,7 +215,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja6.setVisibility(View.INVISIBLE);
                 lblRemedio6.setVisibility(View.VISIBLE);
-                op_6 = false;
                 op[5] = false;
             }
         });
@@ -241,7 +224,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja7.setVisibility(View.INVISIBLE);
                 lblRemedio7.setVisibility(View.VISIBLE);
-                op_7 = false;
                 op[6] = false;
             }
         });
@@ -251,7 +233,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja8.setVisibility(View.INVISIBLE);
                 lblRemedio8.setVisibility(View.VISIBLE);
-                op_8 = false;
                 op[7] = false;
             }
         });
@@ -261,7 +242,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja9.setVisibility(View.INVISIBLE);
                 lblRemedio9.setVisibility(View.VISIBLE);
-                op_9 = false;
                 op[8] = false;
             }
         });
@@ -271,7 +251,6 @@ public class Bandeja extends AppCompatActivity {
             public void onClick(View v) {
                 lblRemedioBandeja10.setVisibility(View.INVISIBLE);
                 lblRemedio10.setVisibility(View.VISIBLE);
-                op_10 = false;
                 op[9] = false;
             }
         });
