@@ -1,6 +1,7 @@
 package com.example.enfergame;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -31,7 +32,12 @@ public class Prontuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide(); // Retira a Action Bar
-        setContentView(R.layout.activity_prontuario);
+
+        if (screenSize() < 720){
+            setContentView(R.layout.activity_prontuario_small);
+        } else {
+            setContentView(R.layout.activity_prontuario);
+        }
 
         Intent recebendoDados = getIntent();
         Bundle dados = recebendoDados.getExtras();
@@ -43,14 +49,8 @@ public class Prontuario extends AppCompatActivity {
         txtFase = findViewById(R.id.txtFase);
         txtLife = findViewById(R.id.txtLife);
 
-        // ZOOM IMAGEM
 
-        bgFerida = findViewById(R.id.bgFerida);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), estagiario.getFase().get(estagiario.getFaseNumero()).getImagem());
-        RoundedBitmapDrawable mDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
-        mDrawable.setCircular(true);
-        bgFerida.setImageDrawable(mDrawable);
-
+        zoomImagem();
         bgFerida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +65,6 @@ public class Prontuario extends AppCompatActivity {
         });
 
         // FIM ZOOM IMAGEM
-
         organizaFront();
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
@@ -97,9 +96,43 @@ public class Prontuario extends AppCompatActivity {
     }
 
     private void organizaFront(){
-        bgFerida.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getImagem());
-        txtDescricao.setText(estagiario.getFase().get(estagiario.getFaseNumero()).getDescricao());
-        txtFase.setText(Integer.toString(estagiario.getFase().get(estagiario.getFaseNumero()).getNumero()));
-        txtLife.setText(Integer.toString(estagiario.getLife()));
+        try{
+            bgFerida.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getImagem());
+            txtDescricao.setText(estagiario.getFase().get(estagiario.getFaseNumero()).getDescricao());
+            txtFase.setText(Integer.toString(estagiario.getFase().get(estagiario.getFaseNumero()).getNumero()));
+            txtLife.setText(Integer.toString(estagiario.getLife()));
+            } catch (Exception e){
+            new AlertDialog.Builder(Prontuario.this)
+                .setTitle("Fim de Jogo!")
+                .setMessage("Bons estudos")
+                .show();
+        }
+    }
+
+    public int screenSize (){
+
+        int altura = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int largura = Resources.getSystem().getDisplayMetrics().widthPixels;
+
+        if (altura < largura){
+            return altura;
+        } else {
+            return largura;
+        }
+    }
+
+    public void zoomImagem(){
+        try{
+            bgFerida = findViewById(R.id.bgFerida);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), estagiario.getFase().get(estagiario.getFaseNumero()).getImagem());
+            RoundedBitmapDrawable mDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+            mDrawable.setCircular(true);
+            bgFerida.setImageDrawable(mDrawable);
+        } catch (Exception e){
+            new AlertDialog.Builder(Prontuario.this)
+                    .setTitle("Fim de Jogo!")
+                    .setMessage("Bons estudos")
+                    .show();
+        }
     }
 }

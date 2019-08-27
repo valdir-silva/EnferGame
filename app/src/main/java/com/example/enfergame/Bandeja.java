@@ -2,6 +2,7 @@ package com.example.enfergame;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,12 @@ public class Bandeja extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide(); // Retira a Action Bar
-        setContentView(R.layout.activity_bandeja);
+
+        if (screenSize() < 720){
+            setContentView(R.layout.activity_bandeja_small);
+        } else {
+            setContentView(R.layout.activity_bandeja);
+        }
 
         Intent recebendoDados = getIntent();
         Bundle dados = recebendoDados.getExtras();
@@ -285,6 +291,7 @@ public class Bandeja extends AppCompatActivity {
                                             "Você colocou os itens corretos na bandeja",
                                             Bandeja.this);
                                             acertouResposta();
+                                            voltarTela();
                                 } else
                                 {
                                     controlador.mostrarMensagem(
@@ -334,5 +341,28 @@ public class Bandeja extends AppCompatActivity {
         lblRemedioBandeja8.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(7));
         lblRemedioBandeja9.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(8));
         lblRemedioBandeja10.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(9));
+    }
+
+    public int screenSize (){
+
+        int altura = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int largura = Resources.getSystem().getDisplayMetrics().widthPixels;
+
+        if (altura < largura){
+            return altura;
+        } else {
+            return largura;
+        }
+    }
+
+    public void voltarTela(){
+        Intent abreProntuario = new Intent(Bandeja.this, Prontuario.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("estagiario", estagiario);
+        abreProntuario.putExtras(bundle);
+
+        startActivity(abreProntuario);
+        overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
     }
 }

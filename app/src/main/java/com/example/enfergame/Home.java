@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import classes.Controlador;
 import classes.Desafio;
@@ -75,16 +76,17 @@ public class Home extends AppCompatActivity {
             desafio.getRemedio().add(R.drawable.solucao_fisiologica_09pc);
             desafio.getRemedio().add(R.drawable.gaze_rayon_com_emulsao_de_petrolatum);
             desafio.getRemedio().add(R.drawable.gaze_esteril);
-            desafio.getRemedio().add(R.drawable.remedio);
-            desafio.getRemedio().add(R.drawable.remedio);
-            desafio.getRemedio().add(R.drawable.remedio);
-            desafio.getRemedio().add(R.drawable.remedio);
-            desafio.getRemedio().add(R.drawable.remedio);
-            desafio.getRemedio().add(R.drawable.remedio);
+            desafio.getRemedio().add(R.drawable.esparadrapo);
+            desafio.getRemedio().add(remedioAleatorio());
+            desafio.getRemedio().add(remedioAleatorio());
+            desafio.getRemedio().add(remedioAleatorio());
+            desafio.getRemedio().add(remedioAleatorio());
+            desafio.getRemedio().add(remedioAleatorio());
             desafio.getOpcao()[0] = true;
             desafio.getOpcao()[1] = true;
             desafio.getOpcao()[2] = true;
             desafio.getOpcao()[3] = true;
+            desafio.getOpcao()[4] = true;
             //usar esse array Opcao para validar respostas
 
             desafios.add(desafio);
@@ -96,24 +98,69 @@ public class Home extends AppCompatActivity {
             desafio2.setDescricao("J.S,24 anos, com Hd de desidratação severa, não apresenta veias periféricas acessíveis para a realização de punção, foi inserido cateter venoso central em via subclávia direita.\n" +
                     "\n" +
                     "Já está no tempo de trocar o curativo, ele foi realizado há 7 dias. Reúna os materiais e boa sorte.\n");
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.acido_graxos_essenciais);
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.remedio);
-            desafio2.getRemedio().add(R.drawable.remedio);
+            desafio2.getRemedio().add(R.drawable.luva_de_procedimento);
+            desafio2.getRemedio().add(R.drawable.luva_esteril);
+            desafio2.getRemedio().add(R.drawable.gaze_esteril);
+            desafio2.getRemedio().add(R.drawable.clorexidina_alcoolica_05pc);
+            desafio2.getRemedio().add(R.drawable.filme_semipermeavel);
+            desafio2.getRemedio().add(remedioAleatorio());
+            desafio2.getRemedio().add(remedioAleatorio());
+            desafio2.getRemedio().add(remedioAleatorio());
+            desafio2.getRemedio().add(remedioAleatorio());
+            desafio2.getRemedio().add(remedioAleatorio());
             desafio2.getOpcao()[0] = true;
             desafio2.getOpcao()[1] = true;
             desafio2.getOpcao()[2] = true;
+            desafio2.getOpcao()[3] = true;
+            desafio2.getOpcao()[4] = true;
 
             desafios.add(desafio2);
 
             estagiario.getFase().add(desafio2);
 
+        Desafio desafio3 = new Desafio();
+        desafio3.setNumero(3);
+        desafio3.setImagem(R.drawable.lesao_por_pressao_estagio1);
+        desafio3.setDescricao("M.J.O, 72 anos, EGR, acamado portador de HAS, DM, Sequelado de AVE- com hemiparesia e hemiplegia de lado esquerdo, evidencia lesão por pressão estagio II apresentando pele intacta, com coloração cianótica e centro roseo.");
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getRemedio().add(remedioAleatorio());
+        desafio3.getOpcao()[0] = true;
+        desafio3.getOpcao()[1] = true;
+
+        desafios.add(desafio3);
+
+        estagiario.getFase().add(desafio3);
+
         return desafios;
+    }
+
+    Integer remedioAleatorio(){ //Populando lista de remedios e retornando um ramdon (seperar em dois metodos)
+        //Implementar entrada de lista com remedios certos para serem ignorados e não retornar um aleatorio repetido
+
+        Integer remedioEscolhido = 0;
+        List<Integer> remedios = new ArrayList<Integer>();
+        Random gerador = new Random();
+
+        remedios.add(R.drawable.luva_esteril);
+        remedios.add(R.drawable.solucao_fisiologica_09pc);
+        remedios.add(R.drawable.gaze_rayon_com_emulsao_de_petrolatum);
+        remedios.add(R.drawable.gaze_esteril);
+        remedios.add(R.drawable.esparadrapo);
+        remedios.add(R.drawable.luva_de_procedimento);
+        remedios.add(R.drawable.clorexidina_alcoolica_05pc);
+        remedios.add(R.drawable.filme_semipermeavel);
+
+
+        remedioEscolhido = remedios.get(gerador.nextInt(8));
+
+        return remedioEscolhido;
     }
 }
