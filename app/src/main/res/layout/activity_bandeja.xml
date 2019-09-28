@@ -338,6 +338,38 @@
             app:srcCompat="@drawable/btn_confirmar"
             />
 
+        <ImageView
+            android:id="@+id/lblRemedioZoom"
+            android:layout_width="370dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            app:srcCompat="@drawable/remedio"
+            />
+
+        <ImageView
+            android:id="@+id/lblConfirmar"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignRight="@id/lblRemedioZoom"
+            android:layout_alignBottom="@id/lblRemedioZoom"
+            android:layout_marginBottom="5dp"
+            app:srcCompat="@drawable/confirmar"
+            />
+
+        <ImageView
+            android:id="@+id/lblCancelar"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignLeft="@id/lblRemedioZoom"
+            android:layout_alignBottom="@id/lblRemedioZoom"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="-10dp"
+            app:srcCompat="@drawable/cancelar"
+            />
+
     </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>

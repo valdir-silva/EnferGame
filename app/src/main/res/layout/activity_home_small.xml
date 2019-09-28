@@ -17,17 +17,18 @@
             android:id="@+id/chao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="-20dp"
             android:layout_alignParentBottom="true"
             app:srcCompat="@drawable/chao"
             />
 
         <ImageView
             android:id="@+id/enfermeira"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="130dp"
             android:layout_alignTop="@id/chao"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="-175dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="-105dp"
             app:srcCompat="@drawable/enfermeira"
             />
 
@@ -93,35 +94,24 @@
 
         <ImageView
             android:id="@+id/texto_leito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
             android:layout_alignLeft="@id/enfermeira"
             android:layout_alignTop="@id/enfermeira"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="-30dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="-50dp"
             app:srcCompat="@drawable/texto_leito"
             />
 
         <ImageView
             android:id="@+id/texto_seringa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
             android:layout_alignLeft="@id/enfermeira"
             android:layout_alignTop="@id/enfermeira"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="-30dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="-50dp"
             app:srcCompat="@drawable/texto_seringa"
-            />
-
-        <ImageView
-            android:id="@+id/texto_apresentacao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/enfermeira"
-            android:layout_alignTop="@id/enfermeira"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="-30dp"
-            app:srcCompat="@drawable/texto_apresentacao"
             />
 
     </RelativeLayout>

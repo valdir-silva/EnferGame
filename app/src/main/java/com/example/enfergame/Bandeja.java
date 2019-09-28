@@ -3,12 +3,19 @@ package com.example.enfergame;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.provider.ContactsContract;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.github.chrisbanes.photoview.PhotoView;
 
 import java.time.Instant;
 
@@ -17,9 +24,10 @@ import classes.Estagiario;
 
 public class Bandeja extends AppCompatActivity {
 
-    ImageView btnVoltar, btnConfirmar;
+    ImageView btnVoltar, btnConfirmar, lblCancelar;
     ImageView lblRemedio, lblRemedio2, lblRemedio3, lblRemedio4, lblRemedio5;
     ImageView lblRemedio6, lblRemedio7, lblRemedio8, lblRemedio9, lblRemedio10;
+    ImageView lblRemedioZoom, lblConfirmar;
     ImageView lblRemedioBandeja, lblRemedioBandeja2, lblRemedioBandeja3, lblRemedioBandeja4, lblRemedioBandeja5;
     ImageView lblRemedioBandeja6, lblRemedioBandeja7, lblRemedioBandeja8, lblRemedioBandeja9, lblRemedioBandeja10;
     Controlador controlador = new Controlador();
@@ -45,6 +53,7 @@ public class Bandeja extends AppCompatActivity {
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnConfirmar = findViewById(R.id.btnConfirmar);
+        lblCancelar = findViewById(R.id.lblCancelar);
 
         lblRemedio = findViewById(R.id.lblRemedio);
         lblRemedio2 = findViewById(R.id.lblRemedio2);
@@ -68,196 +77,148 @@ public class Bandeja extends AppCompatActivity {
         lblRemedioBandeja9 = findViewById(R.id.lblRemedioBandeja9);
         lblRemedioBandeja10 = findViewById(R.id.lblRemedioBandeja10);
 
-        lblRemedioBandeja.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja2.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja3.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja4.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja5.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja6.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja7.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja8.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja9.setVisibility(View.INVISIBLE);
-        lblRemedioBandeja10.setVisibility(View.INVISIBLE);
+        lblRemedioZoom = findViewById(R.id.lblRemedioZoom);
+        lblConfirmar = findViewById(R.id.lblConfirmar);
 
         organizaFront();
 
         lblRemedio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja.setVisibility(View.VISIBLE);
-                op[0] = true;
+                zoomRemedio(1, lblRemedio, lblRemedioBandeja);
             }
         });
 
         lblRemedio2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio2.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja2.setVisibility(View.VISIBLE);
-                op[1] = true;
+                zoomRemedio(2, lblRemedio2, lblRemedioBandeja2);
             }
         });
 
         lblRemedio3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio3.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja3.setVisibility(View.VISIBLE);
-                op[2] = true;
+                zoomRemedio(3, lblRemedio3, lblRemedioBandeja3);
             }
         });
 
         lblRemedio4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio4.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja4.setVisibility(View.VISIBLE);
-                op[3] = true;
+                zoomRemedio(4, lblRemedio4, lblRemedioBandeja4);
             }
         });
 
         lblRemedio5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio5.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja5.setVisibility(View.VISIBLE);
-                op[4] = true;
+                zoomRemedio(5, lblRemedio5, lblRemedioBandeja5);
             }
         });
 
         lblRemedio6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio6.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja6.setVisibility(View.VISIBLE);
-                op[5] = true;
+                zoomRemedio(6, lblRemedio6, lblRemedioBandeja6);
             }
         });
 
         lblRemedio7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio7.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja7.setVisibility(View.VISIBLE);
-                op[6] = true;
+                zoomRemedio(7, lblRemedio7, lblRemedioBandeja7);
             }
         });
 
         lblRemedio8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio8.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja8.setVisibility(View.VISIBLE);
-                op[7] = true;
+                zoomRemedio(8, lblRemedio8, lblRemedioBandeja8);
             }
         });
 
         lblRemedio9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio9.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja9.setVisibility(View.VISIBLE);
-                op[8] = true;
+                zoomRemedio(9, lblRemedio9, lblRemedioBandeja9);
             }
         });
 
         lblRemedio10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedio10.setVisibility(View.INVISIBLE);
-                lblRemedioBandeja10.setVisibility(View.VISIBLE);
-                op[9] = true;
+                zoomRemedio(10, lblRemedio10, lblRemedioBandeja10);
             }
         });
 
         lblRemedioBandeja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja.setVisibility(View.INVISIBLE);
-                lblRemedio.setVisibility(View.VISIBLE);
-                op[0] = false;
+                removerRemedio(1, lblRemedio, lblRemedioBandeja);
             }
         });
 
         lblRemedioBandeja2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja2.setVisibility(View.INVISIBLE);
-                lblRemedio2.setVisibility(View.VISIBLE);
-                op[1] = false;
+                removerRemedio(2, lblRemedio2, lblRemedioBandeja2);
             }
         });
 
         lblRemedioBandeja3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja3.setVisibility(View.INVISIBLE);
-                lblRemedio3.setVisibility(View.VISIBLE);
-                op[2] = false;
+                removerRemedio(3, lblRemedio3, lblRemedioBandeja3);
             }
         });
 
         lblRemedioBandeja4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja4.setVisibility(View.INVISIBLE);
-                lblRemedio4.setVisibility(View.VISIBLE);
-                op[3] = false;
+                removerRemedio(4, lblRemedio4, lblRemedioBandeja4);
             }
         });
 
         lblRemedioBandeja5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja5.setVisibility(View.INVISIBLE);
-                lblRemedio5.setVisibility(View.VISIBLE);
-                op[4] = false;
+                removerRemedio(5, lblRemedio5, lblRemedioBandeja5);
             }
         });
 
         lblRemedioBandeja6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja6.setVisibility(View.INVISIBLE);
-                lblRemedio6.setVisibility(View.VISIBLE);
-                op[5] = false;
+                removerRemedio(6, lblRemedio6, lblRemedioBandeja6);
             }
         });
 
         lblRemedioBandeja7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja7.setVisibility(View.INVISIBLE);
-                lblRemedio7.setVisibility(View.VISIBLE);
-                op[6] = false;
+                removerRemedio(7, lblRemedio7, lblRemedioBandeja7);
             }
         });
 
         lblRemedioBandeja8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja8.setVisibility(View.INVISIBLE);
-                lblRemedio8.setVisibility(View.VISIBLE);
-                op[7] = false;
+                removerRemedio(8, lblRemedio8, lblRemedioBandeja8);
             }
         });
 
         lblRemedioBandeja9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja9.setVisibility(View.INVISIBLE);
-                lblRemedio9.setVisibility(View.VISIBLE);
-                op[8] = false;
+                removerRemedio(9, lblRemedio9, lblRemedioBandeja9);
             }
         });
 
         lblRemedioBandeja10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lblRemedioBandeja10.setVisibility(View.INVISIBLE);
-                lblRemedio10.setVisibility(View.VISIBLE);
-                op[9] = false;
+                removerRemedio(10, lblRemedio10, lblRemedioBandeja10);
             }
         });
 
@@ -315,11 +276,25 @@ public class Bandeja extends AppCompatActivity {
     }
 
     public void acertouResposta(){
-
         estagiario.setFaseNumero(estagiario.getFaseNumero()+1);
     }
 
     public void organizaFront(){
+        lblRemedioBandeja.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja2.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja3.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja4.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja5.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja6.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja7.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja8.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja9.setVisibility(View.INVISIBLE);
+        lblRemedioBandeja10.setVisibility(View.INVISIBLE);
+
+        lblRemedioZoom.setVisibility(View.INVISIBLE);
+        lblConfirmar.setVisibility(View.INVISIBLE);
+        lblCancelar.setVisibility(View.INVISIBLE);
+
         lblRemedio.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(0));
         lblRemedio2.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(1));
         lblRemedio3.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(2));
@@ -364,5 +339,52 @@ public class Bandeja extends AppCompatActivity {
 
         startActivity(abreProntuario);
         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+    }
+
+    public void zoomRemedio(final int remedio, final ImageView remedioEscolhido, final ImageView remedioEscolhidoBandeja){
+        lblRemedioZoom.setVisibility(View.VISIBLE);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(remedio-1));
+        RoundedBitmapDrawable mDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+        lblRemedioZoom.setImageDrawable(mDrawable);
+
+        lblConfirmar.setVisibility(View.VISIBLE);
+        lblCancelar.setVisibility(View.VISIBLE);
+
+        lblConfirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adicionaRemedio(remedio, remedioEscolhido, remedioEscolhidoBandeja);
+            }
+        });
+
+        lblCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelarAdicionar();
+            }
+        });
+    }
+
+    public void cancelarAdicionar(){
+        lblRemedioZoom.setVisibility(View.INVISIBLE);
+        lblConfirmar.setVisibility(View.INVISIBLE);
+        lblCancelar.setVisibility(View.INVISIBLE);
+    }
+
+    public void adicionaRemedio(int remedio, ImageView remedioEscolhido, ImageView remedioEscolhidoBandeja){
+        remedioEscolhido.setVisibility(View.INVISIBLE);
+        remedioEscolhidoBandeja.setVisibility(View.VISIBLE);
+        op[remedio-1] = true;
+
+        lblRemedioZoom.setVisibility(View.INVISIBLE);
+        lblConfirmar.setVisibility(View.INVISIBLE);
+        lblCancelar.setVisibility(View.INVISIBLE);
+    }
+
+    public void removerRemedio(int remedio, ImageView lblRemedioEscolhido, ImageView remedioEscolhidoBandeja){
+        remedioEscolhidoBandeja.setVisibility(View.INVISIBLE);
+        lblRemedioEscolhido.setVisibility(View.VISIBLE);
+        op[remedio-1] = false;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.enfergame;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,7 @@ import classes.Estagiario;
 
 public class Home extends AppCompatActivity {
 
-    ImageView prontuario;
+    ImageView prontuario, texto_apresentacao, texto_leito, texto_seringa, btnCama, btnSeringa;
     TextView txtFase, txtLife;
 
     Estagiario estagiario = new Estagiario();
@@ -27,13 +28,23 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide(); // Retira a Action Bar
-        setContentView(R.layout.activity_home);
+
+        if (screenSize() < 720){
+            setContentView(R.layout.activity_home_small);
+        } else {
+            setContentView(R.layout.activity_home);
+        }
 
         Intent recebendoDados = getIntent();
         Bundle dados = recebendoDados.getExtras();
         estagiario = (Estagiario) dados.getSerializable("estagiario");
 
         prontuario = findViewById(R.id.btnProntuario);
+        btnCama = findViewById(R.id.btnCama);
+        btnSeringa = findViewById(R.id.btnSeringa);
+        texto_apresentacao = findViewById(R.id.texto_apresentacao);
+        texto_leito = findViewById(R.id.texto_leito);
+        texto_seringa = findViewById(R.id.texto_seringa);
 
         txtFase = findViewById(R.id.txtFase);
         txtLife = findViewById(R.id.txtLife);
@@ -58,11 +69,35 @@ public class Home extends AppCompatActivity {
                 startActivity(abreProntuario);
             }
         });
+
+        btnCama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                apagaBaloes();
+                texto_leito.setVisibility(View.VISIBLE);
+            }
+        });
+        btnSeringa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                apagaBaloes();
+                texto_seringa.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    private void apagaBaloes(){
+        texto_leito.setVisibility(View.INVISIBLE);
+        texto_seringa.setVisibility(View.INVISIBLE);
+        texto_apresentacao.setVisibility(View.INVISIBLE);
     }
 
     private void organizaFront(){
         txtFase.setText(Integer.toString(estagiario.getFase().get(estagiario.getFaseNumero()).getNumero()));
         txtLife.setText(Integer.toString(estagiario.getLife()));
+        texto_leito.setVisibility(View.INVISIBLE);
+        texto_seringa.setVisibility(View.INVISIBLE);
+        //texto_apresentacao.setVisibility(View.INVISIBLE);
     }
 
     private List<Desafio> simulaBanco(){
@@ -72,10 +107,15 @@ public class Home extends AppCompatActivity {
             desafio.setNumero(1);
             desafio.setImagem(R.drawable.escoriacoes);
             desafio.setDescricao("J.E.S,26 anos, EGR, admitido no hospital apresentando lesão escoriativas em MMII e MMSS após cair de bicicleta. Estado consciente, orientado, utilizava capacete.");
+            desafio.getNome_remedio().add("Luva Estéril");
             desafio.getRemedio().add(R.drawable.luva_esteril);
+            desafio.getNome_remedio().add("Limpeza com soro fisiológico 0,9% ");
             desafio.getRemedio().add(R.drawable.solucao_fisiologica_09pc);
+            desafio.getNome_remedio().add("Cobertura com gaze Rayon em bebida com Petrolatum");
             desafio.getRemedio().add(R.drawable.gaze_rayon_com_emulsao_de_petrolatum);
+            desafio.getNome_remedio().add("Gaze Esteril");
             desafio.getRemedio().add(R.drawable.gaze_esteril);
+            desafio.getNome_remedio().add("Esparadrapo");
             desafio.getRemedio().add(R.drawable.esparadrapo);
             desafio.getRemedio().add(remedioAleatorio());
             desafio.getRemedio().add(remedioAleatorio());
@@ -98,10 +138,15 @@ public class Home extends AppCompatActivity {
             desafio2.setDescricao("J.S,24 anos, com Hd de desidratação severa, não apresenta veias periféricas acessíveis para a realização de punção, foi inserido cateter venoso central em via subclávia direita.\n" +
                     "\n" +
                     "Já está no tempo de trocar o curativo, ele foi realizado há 7 dias. Reúna os materiais e boa sorte.\n");
+            desafio.getNome_remedio().add("Luva de Procedimento");
             desafio2.getRemedio().add(R.drawable.luva_de_procedimento);
+            desafio.getNome_remedio().add("Luva Estéril");
             desafio2.getRemedio().add(R.drawable.luva_esteril);
+            desafio.getNome_remedio().add("Gaze Esteril");
             desafio2.getRemedio().add(R.drawable.gaze_esteril);
+            desafio.getNome_remedio().add("Clorexidina alcoólica 0,5%");
             desafio2.getRemedio().add(R.drawable.clorexidina_alcoolica_05pc);
+            desafio.getNome_remedio().add("Filme semipermeável");
             desafio2.getRemedio().add(R.drawable.filme_semipermeavel);
             desafio2.getRemedio().add(remedioAleatorio());
             desafio2.getRemedio().add(remedioAleatorio());
@@ -162,5 +207,17 @@ public class Home extends AppCompatActivity {
         remedioEscolhido = remedios.get(gerador.nextInt(8));
 
         return remedioEscolhido;
+    }
+
+    public int screenSize (){
+
+        int altura = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int largura = Resources.getSystem().getDisplayMetrics().widthPixels;
+
+        if (altura < largura){
+            return altura;
+        } else {
+            return largura;
+        }
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 public class Desafio implements Serializable {
 
     private int numero;
+    private List<String> nome_remedio; // Fazer uma classe para remedio com nome e URL
     private String descricao;
     private Integer imagem;
     private List<Integer> remedio = new ArrayList<Integer>();
@@ -17,8 +18,9 @@ public class Desafio implements Serializable {
             this.getOpcao()[i] = false;
     }
 
-    public Desafio(int numero, String descricao, Integer imagem, ArrayList<Integer> remedio, boolean opcao[]) {
+    public Desafio(int numero, List<String> nome_remedio, String descricao, Integer imagem, ArrayList<Integer> remedio, boolean opcao[]) {
         this.numero = numero;
+        this.nome_remedio = nome_remedio;
         this.descricao = descricao;
         this.imagem = imagem;
         this.remedio = remedio;
@@ -31,6 +33,14 @@ public class Desafio implements Serializable {
 
     public void setNumero(int fase) {
         this.numero = fase;
+    }
+
+    public List<String> getNome_remedio() {
+        return nome_remedio;
+    }
+
+    public void setNome_remedio(List<String> nome_remedio) {
+        this.nome_remedio = nome_remedio;
     }
 
     public String getDescricao() {
