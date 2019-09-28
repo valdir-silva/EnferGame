@@ -138,15 +138,15 @@ public class Home extends AppCompatActivity {
             desafio2.setDescricao("J.S,24 anos, com Hd de desidratação severa, não apresenta veias periféricas acessíveis para a realização de punção, foi inserido cateter venoso central em via subclávia direita.\n" +
                     "\n" +
                     "Já está no tempo de trocar o curativo, ele foi realizado há 7 dias. Reúna os materiais e boa sorte.\n");
-            desafio.getNome_remedio().add("Luva de Procedimento");
+            desafio2.getNome_remedio().add("Luva de Procedimento");
             desafio2.getRemedio().add(R.drawable.luva_de_procedimento);
-            desafio.getNome_remedio().add("Luva Estéril");
+            desafio2.getNome_remedio().add("Luva Estéril");
             desafio2.getRemedio().add(R.drawable.luva_esteril);
-            desafio.getNome_remedio().add("Gaze Esteril");
+            desafio2.getNome_remedio().add("Gaze Esteril");
             desafio2.getRemedio().add(R.drawable.gaze_esteril);
-            desafio.getNome_remedio().add("Clorexidina alcoólica 0,5%");
+            desafio2.getNome_remedio().add("Clorexidina alcoólica 0,5%");
             desafio2.getRemedio().add(R.drawable.clorexidina_alcoolica_05pc);
-            desafio.getNome_remedio().add("Filme semipermeável");
+            desafio2.getNome_remedio().add("Filme semipermeável");
             desafio2.getRemedio().add(R.drawable.filme_semipermeavel);
             desafio2.getRemedio().add(remedioAleatorio());
             desafio2.getRemedio().add(remedioAleatorio());

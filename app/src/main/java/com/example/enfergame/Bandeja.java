@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
@@ -24,10 +25,11 @@ import classes.Estagiario;
 
 public class Bandeja extends AppCompatActivity {
 
-    ImageView btnVoltar, btnConfirmar, lblCancelar;
+    ImageView btnVoltar, btnConfirmar;
     ImageView lblRemedio, lblRemedio2, lblRemedio3, lblRemedio4, lblRemedio5;
     ImageView lblRemedio6, lblRemedio7, lblRemedio8, lblRemedio9, lblRemedio10;
-    ImageView lblRemedioZoom, lblConfirmar;
+    ImageView lblRemedioZoom, btnConfirmarRemedio, btnCancelarRemedio;
+    TextView txtNomeRemedio;
     ImageView lblRemedioBandeja, lblRemedioBandeja2, lblRemedioBandeja3, lblRemedioBandeja4, lblRemedioBandeja5;
     ImageView lblRemedioBandeja6, lblRemedioBandeja7, lblRemedioBandeja8, lblRemedioBandeja9, lblRemedioBandeja10;
     Controlador controlador = new Controlador();
@@ -53,7 +55,6 @@ public class Bandeja extends AppCompatActivity {
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnConfirmar = findViewById(R.id.btnConfirmar);
-        lblCancelar = findViewById(R.id.lblCancelar);
 
         lblRemedio = findViewById(R.id.lblRemedio);
         lblRemedio2 = findViewById(R.id.lblRemedio2);
@@ -78,7 +79,9 @@ public class Bandeja extends AppCompatActivity {
         lblRemedioBandeja10 = findViewById(R.id.lblRemedioBandeja10);
 
         lblRemedioZoom = findViewById(R.id.lblRemedioZoom);
-        lblConfirmar = findViewById(R.id.lblConfirmar);
+        btnConfirmarRemedio = findViewById(R.id.btnConfirmarRemedio);
+        btnCancelarRemedio = findViewById(R.id.btnCancelarRemedio);
+        txtNomeRemedio = findViewById(R.id.txtNomeRemedio);
 
         organizaFront();
 
@@ -292,8 +295,9 @@ public class Bandeja extends AppCompatActivity {
         lblRemedioBandeja10.setVisibility(View.INVISIBLE);
 
         lblRemedioZoom.setVisibility(View.INVISIBLE);
-        lblConfirmar.setVisibility(View.INVISIBLE);
-        lblCancelar.setVisibility(View.INVISIBLE);
+        btnConfirmarRemedio.setVisibility(View.INVISIBLE);
+        btnCancelarRemedio.setVisibility(View.INVISIBLE);
+        txtNomeRemedio.setVisibility(View.INVISIBLE);
 
         lblRemedio.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(0));
         lblRemedio2.setImageResource(estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(1));
@@ -343,22 +347,25 @@ public class Bandeja extends AppCompatActivity {
 
     public void zoomRemedio(final int remedio, final ImageView remedioEscolhido, final ImageView remedioEscolhidoBandeja){
         lblRemedioZoom.setVisibility(View.VISIBLE);
+        txtNomeRemedio.setVisibility(View.VISIBLE);
+
+       txtNomeRemedio.setText(estagiario.getFase().get(estagiario.getFaseNumero()).getNome_remedio().get(remedio-1));
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), estagiario.getFase().get(estagiario.getFaseNumero()).getRemedio().get(remedio-1));
         RoundedBitmapDrawable mDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
         lblRemedioZoom.setImageDrawable(mDrawable);
 
-        lblConfirmar.setVisibility(View.VISIBLE);
-        lblCancelar.setVisibility(View.VISIBLE);
+        btnConfirmarRemedio.setVisibility(View.VISIBLE);
+        btnCancelarRemedio.setVisibility(View.VISIBLE);
 
-        lblConfirmar.setOnClickListener(new View.OnClickListener() {
+        btnConfirmarRemedio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 adicionaRemedio(remedio, remedioEscolhido, remedioEscolhidoBandeja);
             }
         });
 
-        lblCancelar.setOnClickListener(new View.OnClickListener() {
+        btnCancelarRemedio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancelarAdicionar();
@@ -368,8 +375,9 @@ public class Bandeja extends AppCompatActivity {
 
     public void cancelarAdicionar(){
         lblRemedioZoom.setVisibility(View.INVISIBLE);
-        lblConfirmar.setVisibility(View.INVISIBLE);
-        lblCancelar.setVisibility(View.INVISIBLE);
+        btnConfirmarRemedio.setVisibility(View.INVISIBLE);
+        btnCancelarRemedio.setVisibility(View.INVISIBLE);
+        txtNomeRemedio.setVisibility(View.INVISIBLE);
     }
 
     public void adicionaRemedio(int remedio, ImageView remedioEscolhido, ImageView remedioEscolhidoBandeja){
@@ -378,8 +386,9 @@ public class Bandeja extends AppCompatActivity {
         op[remedio-1] = true;
 
         lblRemedioZoom.setVisibility(View.INVISIBLE);
-        lblConfirmar.setVisibility(View.INVISIBLE);
-        lblCancelar.setVisibility(View.INVISIBLE);
+        btnConfirmarRemedio.setVisibility(View.INVISIBLE);
+        btnCancelarRemedio.setVisibility(View.INVISIBLE);
+        txtNomeRemedio.setVisibility(View.INVISIBLE);
     }
 
     public void removerRemedio(int remedio, ImageView lblRemedioEscolhido, ImageView remedioEscolhidoBandeja){

@@ -349,8 +349,21 @@
             app:srcCompat="@drawable/remedio"
             />
 
+        <TextView
+            android:id="@+id/txtNomeRemedio"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@id/lblRemedioZoom"
+            android:layout_marginTop="6dp"
+            android:textSize="16dp"
+            android:textColor="#FFF"
+            android:text="Nome do Remedio"
+            android:background="@color/colorPrimary"
+            />
+
         <ImageView
-            android:id="@+id/lblConfirmar"
+            android:id="@+id/btnConfirmarRemedio"
             android:layout_width="200dp"
             android:layout_height="45dp"
             android:layout_alignRight="@id/lblRemedioZoom"
@@ -360,7 +373,7 @@
             />
 
         <ImageView
-            android:id="@+id/lblCancelar"
+            android:id="@+id/btnCancelarRemedio"
             android:layout_width="200dp"
             android:layout_height="45dp"
             android:layout_alignLeft="@id/lblRemedioZoom"

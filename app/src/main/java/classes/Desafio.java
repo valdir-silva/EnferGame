@@ -7,7 +7,7 @@ import java.util.List;
 public class Desafio implements Serializable {
 
     private int numero;
-    private List<String> nome_remedio; // Fazer uma classe para remedio com nome e URL
+    private List<String> nome_remedio = new ArrayList<>(); // Fazer uma classe para remedio com nome e URL
     private String descricao;
     private Integer imagem;
     private List<Integer> remedio = new ArrayList<Integer>();
